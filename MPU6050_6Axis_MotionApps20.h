@@ -33,6 +33,11 @@ THE SOFTWARE.
 #ifndef _MPU6050_6AXIS_MOTIONAPPS20_H_
 #define _MPU6050_6AXIS_MOTIONAPPS20_H_
 
+#include <cstdint>
+#include <cstring>
+// C header files
+#include <unistd.h> // TODO is there a c++ header that define usleep?
+
 #include "I2Cdev.h"
 #include "helper_3dmath.h"
 
@@ -685,7 +690,7 @@ uint8_t MPU6050::dmpReadAndProcessFIFOPacket(uint8_t numPackets, uint8_t *proces
 
         // process packet
         if ((status = dmpProcessFIFOPacket(buf)) > 0) return status;
-        
+
         // increment external process count variable, if supplied
         if (processed != 0) (*processed)++;
     }

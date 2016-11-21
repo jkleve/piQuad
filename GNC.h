@@ -1,5 +1,6 @@
 #pragma once
 
+#include "helper_3dmath.h"
 #include "MPU6050.h"
 
 class GNC {
@@ -22,4 +23,4 @@ class GNC {
         // orientation/motion vars
         Quaternion q;           // [w, x, y, z]         quaternion container
 
-}
+};
