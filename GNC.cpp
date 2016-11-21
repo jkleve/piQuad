@@ -4,6 +4,8 @@
 
 GNC::GNC()
 {
+    dmpReady = false;  // set true if DMP init was successful
+    
     // initialize device
     printf("Initializing I2C devices...\n");
     mpu.initialize();
@@ -46,7 +48,7 @@ GNC::~GNC()
 {
 }
 
-GNC::step()
+void GNC::step()
 {
     // if programming failed, don't try to do anything
     if (!dmpReady) return;
