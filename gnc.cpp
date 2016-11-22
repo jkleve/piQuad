@@ -2,13 +2,16 @@
 
 #include "MPU6050_6Axis_MotionApps20.h"
 
-#include "GNC.h"
+#include "gnc.h"
 
 
 GNC::GNC()
 {
     dmpReady = false;  // set true if DMP init was successful
+}
 
+void GNC::initialize()
+{
     // initialize device
     printf("Initializing I2C devices...\n");
     mpu.initialize();

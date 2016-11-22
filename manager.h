@@ -1,24 +1,21 @@
-#include "COMMS.h"
-#include "GNC.h"
-
-enum schedule_t
-{
-    initialize,
-    ready,
-    grounded,
-    inFlight,
-    error
-};
+#include "comms.h"
+#include "gnc.h"
+#include "pi_types.h"
 
 class Manager {
     public:
         Manager();
-        ~Manager();
 
         void initialize();
+        void arm();
+        void disarm();
+
+        void run();
+
         schedule_t getSchedule();
 
     private:
+        schedule_t schedule;
         GNC gnc;
-        COMMS comms;
+        Comms comms;
 };

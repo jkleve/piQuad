@@ -1,27 +1,13 @@
 #include <unistd.h>
-#include "GNC.h"
-
-GNC gnc;
-
-// ================================================================
-// ===                      INITIAL SETUP                       ===
-// ================================================================
-void setup() {
-}
-
-// ================================================================
-// ===                    MAIN PROGRAM LOOP                     ===
-// ================================================================
-
-void loop() {
-    gnc.step();
-}
+#include "manager.h"
+#include "pi_types.h"
 
 int main() {
-    setup();
-    usleep(100000);
-    for (;;)
-        loop();
+    Manager manager;
+
+    manager.initialize();
+
+    manager.run();
 
     return 0;
 }

@@ -8,6 +8,7 @@ class GNC {
         GNC();
         ~GNC();
 
+        void initialize();
         void step(); // TODO add setpoints to this function
         // TODO determine if we need to understand quaternions better to be
         // able to determine what the setpoint is when you want to go forward
