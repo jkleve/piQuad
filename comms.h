@@ -5,4 +5,5 @@ class Comms
     public:
         Comms();
         retCode_t initialize();
+        void step();
 };

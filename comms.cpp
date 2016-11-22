@@ -11,3 +11,8 @@ retCode_t Comms::initialize()
 {
     return success;
 }
+
+void Comms::step()
+{
+    
+}
