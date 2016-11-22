@@ -8,7 +8,10 @@ class GNC {
         GNC();
         ~GNC();
 
-        void step();
+        void step(); // TODO add setpoints to this function
+        // TODO determine if we need to understand quaternions better to be
+        // able to determine what the setpoint is when you want to go forward
+        // or left/right
 
     private:
         MPU6050 mpu;
