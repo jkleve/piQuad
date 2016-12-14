@@ -1,4 +1,9 @@
 piQuad
+ground_state/gs
+drone/server
+
+server
+client
 
 # Compiled Object files
 *.slo
