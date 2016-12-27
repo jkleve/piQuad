@@ -2,6 +2,8 @@
 #include "manager.h"
 #include "pi_types.h"
 
+
+
 int main() {
     Manager manager;
 

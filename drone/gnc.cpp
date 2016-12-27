@@ -4,7 +4,6 @@
 
 #include "gnc.h"
 
-
 GNC::GNC()
 {
     dmpReady = false;  // set true if DMP init was successful

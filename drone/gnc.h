@@ -24,7 +24,13 @@ class GNC {
         uint16_t fifoCount;     // count of all bytes currently in FIFO
         uint8_t fifoBuffer[64]; // FIFO storage buffer
 
+        uint8_t set_throttle;
+        int8_t  set_yaw;
+        int8_t  set_pitch;
+        int8_t  set_roll;
+
         // orientation/motion vars
         Quaternion q;           // [w, x, y, z]         quaternion container
 
+        //udp_server
 };

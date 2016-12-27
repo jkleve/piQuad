@@ -1,3 +1,7 @@
+#pragma once
+
+#include <boost/thread.hpp>
+
 #include "comms.h"
 #include "gnc.h"
 #include "pi_types.h"
@@ -14,8 +18,9 @@ class Manager {
 
         schedule_t getSchedule();
 
+        Comms comms;
+
     private:
         schedule_t schedule;
         GNC gnc;
-        Comms comms;
 };

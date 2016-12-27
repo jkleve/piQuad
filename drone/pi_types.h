@@ -9,7 +9,7 @@ enum schedule_t
     error
 };
 
-enum retCode_t
+enum ret_code_t
 {
     unknown,
     success,
