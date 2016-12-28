@@ -2,9 +2,9 @@
 
 all: gs
 
-HDRS = 
-CMN_OBJS = 
-DMP_OBJS = main.o
+HDRS =
+CMN_OBJS =
+DMP_OBJS = client.o
 
 # Set DMP FIFO rate to 20Hz to avoid overflows on 3d demo.  See comments in
 # MPU6050_6Axis_MotionApps20.h for details.
@@ -14,8 +14,8 @@ EXTRA_FLAGS = -Wextra -Wdouble-promotion # TODO add this when farther along
 
 $(CMN_OBJS) $(DMP_OBJS) $(RAW_OBJS) : $(HDRS)
 
-piQuad: $(CMN_OBJS) $(DMP_OBJS)
-	$(CXX) -o $@ $^ -lm
+gs: $(CMN_OBJS) $(DMP_OBJS)
+	$(CXX) -o $@ $^ -lboost_system -lboost_thread -pthread
 
 clean:
 	rm -f $(CMN_OBJS) $(DMP_OBJS) gs
