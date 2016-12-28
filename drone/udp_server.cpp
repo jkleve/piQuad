@@ -46,12 +46,18 @@ void udp_server::time_to_receive(const boost::system::error_code& error)
 
 void udp_server::start()
 {
+    #ifdef DEBUG
+    std::cout << "-=| server starting |=-" << std::endl;
+    #endif
     do_receive();
     io_service.run();
 }
 
 void udp_server::do_receive()
 {
+    #ifdef DEBUG
+    std::cout << "-=| server requesting receive |=-" << std::endl;
+    #endif
     socket.async_receive_from(boost::asio::buffer(recv_buffer), receiver_endpoint,
                                boost::bind(&udp_server::handle_receive, this,
                                boost::asio::placeholders::error,
