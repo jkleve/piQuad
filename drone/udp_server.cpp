@@ -19,9 +19,8 @@ std::string make_daytime_string()
   return ctime(&now);
 }
 
-udp_server::udp_server(boost::asio::io_service& ios, int period)
+udp_server::udp_server(int period)
     : period(period),
-      io_service(ios),
       socket(io_service, {udp::v4(), 3643}),
       timer(io_service, boost::posix_time::milliseconds(period))
 {
@@ -49,6 +48,7 @@ void udp_server::start()
     #ifdef DEBUG
     std::cout << "-=| server starting |=-" << std::endl;
     #endif
+    boost::asio::io_service::work wrk(io_service);
     do_receive();
     io_service.run();
 }
@@ -56,7 +56,9 @@ void udp_server::start()
 void udp_server::do_receive()
 {
     #ifdef DEBUG
-    std::cout << "-=| server requesting receive |=-" << std::endl;
+    std::cout << "-=| server requesting receive from |=-" << std::endl;
+    std::cout << "-=| endpoint addr: " << receiver_endpoint.address() <<
+                 " |=-" << std::endl;
     #endif
     socket.async_receive_from(boost::asio::buffer(recv_buffer), receiver_endpoint,
                                boost::bind(&udp_server::handle_receive, this,

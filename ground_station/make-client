@@ -1,1 +1,2 @@
+rm ./client
 c++ -std=c++11 client.cpp -o client -lboost_system -pthread -lboost_thread

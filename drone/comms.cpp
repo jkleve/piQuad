@@ -14,9 +14,9 @@ int8_t  Comms::ui_yaw      = 0;
 int8_t  Comms::ui_pitch    = 0;
 int8_t  Comms::ui_roll     = 0;
 
-Comms::Comms(int period) : period(period), server(ios, period)
+Comms::Comms(int period) : period(period), server(period)
 {
-    boost::asio::io_service::work wrk(ios);
+    //boost::asio::io_service::work wrk(ios);
     //server = udp_server(ios, period);
     //thr = new boost::thread(server.start());
     //boost::shared_ptr< boost::thread >( new boost::thread( server.start()) );

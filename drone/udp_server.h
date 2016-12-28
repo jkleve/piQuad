@@ -10,7 +10,7 @@
 class udp_server
 {
 public:
-    udp_server(boost::asio::io_service&, int period);
+    udp_server(int period);
     ~udp_server();
     void time_to_receive(const boost::system::error_code& error);
     void do_receive();
@@ -19,7 +19,7 @@ public:
 
 private:
     int period;
-    boost::asio::io_service& io_service;
+    boost::asio::io_service io_service;
     boost::asio::ip::udp::socket socket;
     boost::asio::ip::udp::endpoint receiver_endpoint;
     boost::asio::deadline_timer timer;

@@ -54,7 +54,7 @@ class Comms
         static int8_t ui_pitch;
         static int8_t ui_roll;
 
-        boost::asio::io_service ios;
+        //boost::asio::io_service ios;
         int period;
         udp_server server;
         boost::thread* thread;
