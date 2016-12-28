@@ -1,0 +1,1 @@
+c++ client1.cpp -o client1 -lboost_system -pthread -lboost_thread
