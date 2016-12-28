@@ -15,7 +15,7 @@ EXTRA_FLAGS = -Wextra -Wdouble-promotion # TODO add this when farther along
 $(CMN_OBJS) $(DMP_OBJS) $(RAW_OBJS) : $(HDRS)
 
 piQuad: $(CMN_OBJS) $(DMP_OBJS)
-	$(CXX) -o $@ $^ -lm -lboost_system -lboost_thread
+	$(CXX) -o $@ $^ -lm -lboost_system -lboost_thread -pthread
 
 clean:
 	rm -f $(CMN_OBJS) $(DMP_OBJS) piQuad

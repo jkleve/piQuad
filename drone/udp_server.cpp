@@ -60,6 +60,9 @@ void udp_server::do_receive()
 
 void udp_server::handle_receive(const boost::system::error_code& error, size_t bytes_transferred)
 {
+    #ifdef DEBUG
+    std::cout << "-=| received message |=-" << std::endl;
+    #endif
     //std::string* str = new std::string(make_daytime_string());
     //str->erase(std::remove(str->begin(), str->end(), '\n'), str->end());
     //boost::shared_ptr<std::string> message(str);
