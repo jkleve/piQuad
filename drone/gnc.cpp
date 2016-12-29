@@ -9,7 +9,7 @@
 #include "gnc.h"
 #include "rpiPWM1.h"
 
-GNC::GNC() : pwm(50.0, 100, 100.0, rpiPWM1::MSMODE)
+GNC::GNC() : pwm(50.0, 100, 99.9, rpiPWM1::MSMODE)
 {
     dmpReady = false;  // set true if DMP init was successful
 
