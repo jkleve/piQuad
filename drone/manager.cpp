@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include <unistd.h>
+
 #include "manager.h"
 #include "pi_types.h"
 
@@ -61,5 +63,7 @@ void Manager::run()
         #ifdef PI
         gnc.step();
         #endif // PI
+
+        usleep(50);
     }
 }
