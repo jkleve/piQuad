@@ -78,4 +78,6 @@ void GNC::step(ui::data_t* input)
         //printf("\n");
     }
     #endif // PI
+
+    std::cout << "Throttle: " << input->throttle << std::endl;
 }

@@ -67,6 +67,7 @@ void Manager::run()
         input = comms.get_ui();
         gnc.step(input);
 
+        delete input; // delete data_t struct pointed to by input
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 }
