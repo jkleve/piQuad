@@ -57,6 +57,7 @@ void Manager::run()
 {
     for (;;)
     {
+        comms.step();
         #ifdef PI
         gnc.step();
         #endif // PI
