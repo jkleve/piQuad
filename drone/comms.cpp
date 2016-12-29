@@ -32,7 +32,8 @@ ret_code_t Comms::initialize()
 
 void Comms::step()
 {
-
+    std::lock_guard<std::mutex> guard(ui_mutex);
+    std::cout << "Throttle: " << ui_throttle << std::endl;
 }
 
 void Comms::set_ui(ui::message_t m, uint8_t t, int8_t  y, int8_t  p, int8_t  r)
