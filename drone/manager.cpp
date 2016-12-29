@@ -1,6 +1,8 @@
 #include <iostream>
 
-#include <unistd.h>
+#include <chrono>
+#include <thread>
+//#include <unistd.h>
 
 #include "manager.h"
 #include "pi_types.h"
@@ -57,13 +59,14 @@ void Manager::disarm()
 
 void Manager::run()
 {
+    ui::data_t* input;
+
     for (;;)
     {
-        comms.step();
-        #ifdef PI
-        gnc.step();
-        #endif // PI
+        //comms.step(); this does nothing right now
+        input = comms.get_ui();
+        gnc.step(input);
 
-        usleep(50);
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 }

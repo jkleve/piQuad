@@ -2,6 +2,7 @@
 
 #include "MPU6050_6Axis_MotionApps20.h"
 
+#include "comms.h"
 #include "gnc.h"
 
 GNC::GNC()
@@ -53,8 +54,9 @@ GNC::~GNC()
 {
 }
 
-void GNC::step()
+void GNC::step(ui::data_t* input)
 {
+    #ifdef PI
     // if programming failed, don't try to do anything
     if (!dmpReady) return;
     // get current FIFO count
@@ -75,4 +77,5 @@ void GNC::step()
         //printf("quat %7.2f %7.2f %7.2f %7.2f    ", q.w,q.x,q.y,q.z);
         //printf("\n");
     }
+    #endif // PI
 }

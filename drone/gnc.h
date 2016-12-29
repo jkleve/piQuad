@@ -2,6 +2,7 @@
 
 #include "helper_3dmath.h"
 #include "MPU6050.h"
+#include "comms.h"
 
 class GNC {
     public:
@@ -9,7 +10,7 @@ class GNC {
         ~GNC();
 
         void initialize();
-        void step(); // TODO add setpoints to this function
+        void step(ui::data_t*); // TODO add setpoints to this function
         // TODO determine if we need to understand quaternions better to be
         // able to determine what the setpoint is when you want to go forward
         // or left/right
