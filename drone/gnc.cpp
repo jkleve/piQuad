@@ -1,13 +1,20 @@
 #include <cstdio>
 
+#include <chrono>
+#include <thread>
+
 #include "MPU6050_6Axis_MotionApps20.h"
 
 #include "comms.h"
 #include "gnc.h"
+#include "rpiPWM1.h"
 
-GNC::GNC()
+GNC::GNC() : pwm(20.0, 100, 100.0, rpiPWM1::MSMODE)
 {
     dmpReady = false;  // set true if DMP init was successful
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    pwm.setDutyCycle(0.0);
 }
 
 void GNC::initialize()
@@ -80,4 +87,5 @@ void GNC::step(ui::data_t* input)
     #endif // PI
 
     std::cout << "Throttle: " << input->throttle << std::endl;
+    pwm.setDutyCycle(input->throttle);
 }

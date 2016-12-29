@@ -2,8 +2,8 @@
 
 all: piQuad
 
-HDRS = helper_3dmath.h I2Cdev.h MPU6050_6Axis_MotionApps20.h MPU6050.h manager.h gnc.h comms.h udp_server.h pi_types.h
-CMN_OBJS = I2Cdev.o MPU6050.o manager.o gnc.o comms.o udp_server.o
+HDRS = helper_3dmath.h I2Cdev.h MPU6050_6Axis_MotionApps20.h MPU6050.h manager.h gnc.h comms.h udp_server.h pi_types.h rpiPWM1.cpp
+CMN_OBJS = I2Cdev.o MPU6050.o manager.o gnc.o comms.o udp_server.o rpiPWM1.o
 DMP_OBJS = main.o
 
 # Set DMP FIFO rate to 20Hz to avoid overflows on 3d demo.  See comments in

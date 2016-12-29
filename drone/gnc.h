@@ -3,6 +3,7 @@
 #include "helper_3dmath.h"
 #include "MPU6050.h"
 #include "comms.h"
+#include "rpiPWM1.h"
 
 class GNC {
     public:
@@ -17,6 +18,7 @@ class GNC {
 
     private:
         MPU6050 mpu;
+        rpiPWM1 pwm;
         // MPU control/status vars
         bool dmpReady;
         uint8_t mpuIntStatus;   // holds actual interrupt status byte from MPU

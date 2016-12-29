@@ -2,7 +2,6 @@
 
 #include <chrono>
 #include <thread>
-//#include <unistd.h>
 
 #include "manager.h"
 #include "pi_types.h"
